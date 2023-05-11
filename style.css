@@ -1,0 +1,120 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1000px;
+    width: 100%;
+}
+
+#edit-user-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
+    z-index: 999;
+    text-align: center;
+    border-radius: 20px;
+}
+
+#close-edit-user-popup {
+    margin-top: 20px;
+}
+
+:root {
+    --softorange: #f4a259;
+    --tomatored: #f25c66;
+    --mediumblu: #1e272d;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+}
+
+
+.close-container body {
+    background-color: var(--mediumblu);
+}
+
+:root {
+    --cross-size: 150px;
+}
+
+.close-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    width: var(--cross-size);
+    cursor: pointer;
+}
+
+.cross {
+    width: var(--cross-size);
+    height: var(--cross-size);
+}
+
+.close-container .cross .leftright {
+    height: 4px;
+    width: var(--cross-size);
+    position: absolute;
+    margin-top: calc(var(--cross-size)/2);
+    background-color: var(--softorange);
+    border-radius: 2px;
+    transform: rotate(45deg);
+    transition: all 0.3s ease-in;
+}
+
+.close-container .cross .rightleft {
+    height: 4px;
+    width: var(--cross-size);
+    margin-top: calc(var(--cross-size)/2);
+    background-color: var(--softorange);
+    border-radius: 2px;
+    transform: rotate(-45deg);
+    transition: all 0.3s ease-in;
+}
+
+.close-container .label {
+    text-align: center;
+}
+
+.close-container label {
+    color: rgb(255, 0, 0);
+    font-family: Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-in;
+    opacity: 0;
+}
+
+.close-container .close {
+    margin: calc((60/50)*var(--cross-size)) 0 0 0;
+}
+
+.close-container:hover .cross .leftright {
+    transform: rotate(-45deg);
+    background-color: var(--tomatored);
+}
+
+.close-container:hover .cross .rightleft {
+    transform: rotate(45deg);
+    background-color: var(--tomatored);
+}
+
+.close-container:hover label {
+    opacity: 1;
+}
